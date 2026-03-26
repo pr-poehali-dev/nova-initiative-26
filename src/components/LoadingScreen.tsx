@@ -27,15 +27,16 @@ export default function LoadingScreen() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="font-serif text-4xl mb-4"
+          className="flex flex-col items-center gap-2"
         >
-          Загрузка
+          <span className="font-serif text-xs tracking-[0.4em] uppercase text-foreground/40">Collection 2025</span>
+          <div className="font-serif text-5xl font-light tracking-widest text-foreground">VELO</div>
         </motion.div>
         <motion.div
           initial={{ scaleX: 0 }}
           animate={{ scaleX: 1 }}
           transition={{ duration: 1.5, ease: "easeInOut" }}
-          className="h-[2px] w-48 mx-auto bg-accent origin-left"
+          className="h-px w-32 mx-auto mt-6 bg-foreground/30 origin-left"
         />
       </div>
     </motion.div>
