@@ -1,10 +1,12 @@
 {
   "tests": [
     {
-      "name": "GET list of files in S3",
+      "name": "List all files",
       "method": "GET",
-      "path": "/",
-      "expected_status": 200
+      "path": "/?action=list",
+      "expectedStatus": 200,
+      "expectedBody": {"total": "number"},
+      "bodyMatcher": "partial"
     }
   ]
 }
