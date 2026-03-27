@@ -4,52 +4,49 @@ import { useTexture } from "@react-three/drei"
 import * as THREE from "three"
 
 const images = [
-  "https://cdn.poehali.dev/projects/64c0066b-75ed-4ca7-9a62-72c25709d50b/files/be767d45-98b5-4144-b69a-fefeab96f8d6.jpg",
-  "https://cdn.poehali.dev/projects/64c0066b-75ed-4ca7-9a62-72c25709d50b/files/dc674180-eeee-44c8-b7aa-ae4ecc03ef72.jpg",
-  "https://cdn.poehali.dev/projects/64c0066b-75ed-4ca7-9a62-72c25709d50b/files/2d9477b9-b9ff-4af8-bd2b-9e16af434f72.jpg",
-  "https://cdn.poehali.dev/projects/64c0066b-75ed-4ca7-9a62-72c25709d50b/files/0b22a8ac-1cdf-4f7d-b3aa-2a36f4f087f3.jpg",
-  "https://cdn.poehali.dev/projects/64c0066b-75ed-4ca7-9a62-72c25709d50b/files/2db23da7-21ea-48b6-9d14-3b14f51cc3ab.jpg",
-  "https://cdn.poehali.dev/projects/64c0066b-75ed-4ca7-9a62-72c25709d50b/files/f99d9180-cfa7-4891-b29f-9f31724f10d3.jpg",
-  "https://cdn.poehali.dev/projects/64c0066b-75ed-4ca7-9a62-72c25709d50b/files/1f6ef202-5e19-4e4d-aa76-6a559e77fb7f.jpg",
-  "https://cdn.poehali.dev/projects/64c0066b-75ed-4ca7-9a62-72c25709d50b/files/019f2b52-cd39-4b52-b179-752d271b5605.jpg",
-  "https://cdn.poehali.dev/projects/64c0066b-75ed-4ca7-9a62-72c25709d50b/files/2c6de71d-76f5-4932-ac8d-99556d0dcb54.jpg",
-  "https://cdn.poehali.dev/projects/64c0066b-75ed-4ca7-9a62-72c25709d50b/files/15e1af0a-81fd-4071-88ed-db64e81fe7f7.jpg",
-  "https://cdn.poehali.dev/projects/64c0066b-75ed-4ca7-9a62-72c25709d50b/files/45a28dc7-15a6-4369-adca-de68bed918a9.jpg",
-  "https://cdn.poehali.dev/projects/64c0066b-75ed-4ca7-9a62-72c25709d50b/files/627a1614-9819-4e61-859c-ebf3e9b8e0ef.jpg",
-  "https://cdn.poehali.dev/projects/64c0066b-75ed-4ca7-9a62-72c25709d50b/files/9bad8671-dc50-440b-97f1-8877172bbc9c.jpg",
-  "https://cdn.poehali.dev/projects/64c0066b-75ed-4ca7-9a62-72c25709d50b/files/f885a141-e53f-4fa1-a9c2-273705e4734c.jpg",
-  "https://cdn.poehali.dev/projects/64c0066b-75ed-4ca7-9a62-72c25709d50b/files/91ae19b2-a531-4d14-a02b-14d8ffedb0bd.jpg",
-  "https://cdn.poehali.dev/projects/64c0066b-75ed-4ca7-9a62-72c25709d50b/files/b903119e-b3dc-498b-91f2-54c8f3fee580.jpg",
+  "https://cdn.poehali.dev/projects/64c0066b-75ed-4ca7-9a62-72c25709d50b/bucket/c5fff5cd-b6aa-4315-8529-bbb706529c71.jpeg",
+  "https://cdn.poehali.dev/projects/64c0066b-75ed-4ca7-9a62-72c25709d50b/bucket/2842d813-70c7-4673-9a50-7fdc79b72802.jpeg",
+  "https://cdn.poehali.dev/projects/64c0066b-75ed-4ca7-9a62-72c25709d50b/bucket/80015b33-c370-4ea4-873d-c58e05da965e.jpeg",
+  "https://cdn.poehali.dev/projects/64c0066b-75ed-4ca7-9a62-72c25709d50b/bucket/411b5875-6497-4e79-bcc6-ce05555bd621.jpeg",
+  "https://cdn.poehali.dev/projects/64c0066b-75ed-4ca7-9a62-72c25709d50b/bucket/4bdea667-f39a-4d46-ab09-885ba543f07b.jpeg",
+  "https://cdn.poehali.dev/projects/64c0066b-75ed-4ca7-9a62-72c25709d50b/bucket/c5fff5cd-b6aa-4315-8529-bbb706529c71.jpeg",
+  "https://cdn.poehali.dev/projects/64c0066b-75ed-4ca7-9a62-72c25709d50b/bucket/2842d813-70c7-4673-9a50-7fdc79b72802.jpeg",
+  "https://cdn.poehali.dev/projects/64c0066b-75ed-4ca7-9a62-72c25709d50b/bucket/80015b33-c370-4ea4-873d-c58e05da965e.jpeg",
+]
+
+export const imagesMeta = [
+  { title: "Street Collection", description: "Ансамбль с широкополой шляпой и пиджаком с фринжем. Городская сцена, три образа.", url: images[0] },
+  { title: "Pink Jacket", description: "Розовый жакет с чёрно-белым шарфом в полоску. Выполнен в пастельной технике на крафте.", url: images[1] },
+  { title: "Hussar Coat", description: "Гусарский сюртук из джинса с красными позументами, колпак для маскарада, сумка Биркин.", url: images[2] },
+  { title: "Black Maxi", description: "Чёрный максимальный силуэт с открытым плечом и синими солнечными очками oversize.", url: images[3] },
+  { title: "White Blazer", description: "Белый блейзер с разрезами на лацканах, радужные брюки, кроссовки. Подпись Yastrebova.", url: images[4] },
+  { title: "Street Collection II", description: "Второй взгляд на уличную коллекцию.", url: images[5] },
+  { title: "Pink Jacket II", description: "Детальный вид розового жакета.", url: images[6] },
+  { title: "Black Maxi II", description: "Детальный вид чёрного образа.", url: images[7] },
 ]
 
 const imagePositions = [
-  { pos: [-3.2, 1.8, -2.5] as [number, number, number], rot: [0, 0.4, 0] as [number, number, number], scale: 0.7 },
-  { pos: [2.8, -1.2, -3] as [number, number, number], rot: [0, -0.5, 0] as [number, number, number], scale: 0.8 },
-  { pos: [-1.5, 2.5, -1.8] as [number, number, number], rot: [0, 0.3, 0] as [number, number, number], scale: 0.65 },
-  { pos: [3.5, 0.8, -2.2] as [number, number, number], rot: [0, -0.4, 0] as [number, number, number], scale: 0.75 },
-  { pos: [-2.8, -2.1, -2.8] as [number, number, number], rot: [0, 0.5, 0] as [number, number, number], scale: 0.7 },
-  { pos: [1.2, 2.2, -2.5] as [number, number, number], rot: [0, -0.3, 0] as [number, number, number], scale: 0.8 },
-  { pos: [-3.5, 0.5, -2] as [number, number, number], rot: [0, 0.6, 0] as [number, number, number], scale: 0.65 },
-  { pos: [2.2, -2.5, -2.6] as [number, number, number], rot: [0, -0.4, 0] as [number, number, number], scale: 0.75 },
-  { pos: [-1.8, -0.8, -3.2] as [number, number, number], rot: [0, 0.3, 0] as [number, number, number], scale: 0.7 },
-  { pos: [3.2, 1.5, -1.9] as [number, number, number], rot: [0, -0.5, 0] as [number, number, number], scale: 0.8 },
-  { pos: [-2.5, 2.8, -2.4] as [number, number, number], rot: [0, 0.4, 0] as [number, number, number], scale: 0.65 },
-  { pos: [0.8, -1.8, -2.7] as [number, number, number], rot: [0, -0.3, 0] as [number, number, number], scale: 0.75 },
-  { pos: [-3.8, -1.5, -2.3] as [number, number, number], rot: [0, 0.5, 0] as [number, number, number], scale: 0.7 },
-  { pos: [2.5, 2.8, -2.9] as [number, number, number], rot: [0, -0.4, 0] as [number, number, number], scale: 0.8 },
-  { pos: [-0.8, -2.8, -2.1] as [number, number, number], rot: [0, 0.3, 0] as [number, number, number], scale: 0.65 },
-  { pos: [3.8, -0.5, -2.5] as [number, number, number], rot: [0, -0.5, 0] as [number, number, number], scale: 0.75 },
+  { pos: [-3.2, 1.8, -2.5] as [number, number, number], rot: [0, 0.4, 0] as [number, number, number], scale: 0.85 },
+  { pos: [2.8, -1.2, -3] as [number, number, number], rot: [0, -0.5, 0] as [number, number, number], scale: 0.9 },
+  { pos: [-1.5, 2.5, -1.8] as [number, number, number], rot: [0, 0.3, 0] as [number, number, number], scale: 0.8 },
+  { pos: [3.5, 0.8, -2.2] as [number, number, number], rot: [0, -0.4, 0] as [number, number, number], scale: 0.88 },
+  { pos: [-2.8, -2.1, -2.8] as [number, number, number], rot: [0, 0.5, 0] as [number, number, number], scale: 0.82 },
+  { pos: [1.2, 2.2, -2.5] as [number, number, number], rot: [0, -0.3, 0] as [number, number, number], scale: 0.9 },
+  { pos: [-3.5, 0.5, -2] as [number, number, number], rot: [0, 0.6, 0] as [number, number, number], scale: 0.78 },
+  { pos: [2.2, -2.5, -2.6] as [number, number, number], rot: [0, -0.4, 0] as [number, number, number], scale: 0.86 },
 ]
 
 interface FloatingImageProps {
   texture: THREE.Texture
   index: number
   rotation: number
+  onSelect: (index: number) => void
 }
 
-function FloatingImage({ texture, index, rotation }: FloatingImageProps) {
+function FloatingImage({ texture, index, rotation, onSelect }: FloatingImageProps) {
   const meshRef = useRef<THREE.Mesh>(null)
   const config = imagePositions[index]
+  const [hovered, setHovered] = useState(false)
 
   useFrame((state) => {
     if (!meshRef.current) return
@@ -58,16 +55,31 @@ function FloatingImage({ texture, index, rotation }: FloatingImageProps) {
     meshRef.current.rotation.y = THREE.MathUtils.lerp(meshRef.current.rotation.y, targetRotY, 0.12)
 
     const time = state.clock.getElapsedTime()
-    meshRef.current.position.y = config.pos[1] + Math.sin(time * 0.5 + index) * 0.1
+    // Усиленное дыхание: амплитуда 0.35 вместо 0.1
+    meshRef.current.position.y = config.pos[1] + Math.sin(time * 0.6 + index * 1.1) * 0.35
+
+    // Масштаб при наведении
+    const targetScale = hovered ? config.scale * 1.08 : config.scale
+    meshRef.current.scale.setScalar(
+      THREE.MathUtils.lerp(meshRef.current.scale.x, targetScale, 0.1)
+    )
   })
 
   return (
-    <mesh ref={meshRef} position={config.pos} rotation={config.rot} scale={config.scale}>
+    <mesh
+      ref={meshRef}
+      position={config.pos}
+      rotation={config.rot}
+      scale={config.scale}
+      onClick={() => onSelect(index)}
+      onPointerOver={() => setHovered(true)}
+      onPointerOut={() => setHovered(false)}
+    >
       <planeGeometry args={[0.833, 1.2]} />
       <meshStandardMaterial
         map={texture}
         transparent
-        opacity={0.95}
+        opacity={hovered ? 1 : 0.92}
         side={THREE.DoubleSide}
         roughness={0.3}
         metalness={0.1}
@@ -76,7 +88,11 @@ function FloatingImage({ texture, index, rotation }: FloatingImageProps) {
   )
 }
 
-export default function Scene() {
+interface SceneProps {
+  onSelectImage: (index: number) => void
+}
+
+export default function Scene({ onSelectImage }: SceneProps) {
   const [rotation, setRotation] = useState(0)
   const [targetRotation, setTargetRotation] = useState(0)
   const [isAutoPlaying, setIsAutoPlaying] = useState(true)
@@ -89,7 +105,6 @@ export default function Scene() {
 
   const textures = useTexture(images)
 
-  // Mouse parallax effect
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       if (isDragging.current) {
@@ -164,7 +179,6 @@ export default function Scene() {
     }
   }, [targetRotation, size])
 
-  // Keyboard navigation
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "ArrowRight" || e.key === "ArrowDown") {
@@ -187,11 +201,8 @@ export default function Scene() {
 
     const handleWheel = (e: WheelEvent) => {
       if (isThrottled) return
-
       isThrottled = true
-      setTimeout(() => {
-        isThrottled = false
-      }, 400)
+      setTimeout(() => { isThrottled = false }, 400)
 
       if (e.deltaY > 0) {
         setTargetRotation((prev) => prev + Math.PI / 3)
@@ -204,12 +215,9 @@ export default function Scene() {
     }
 
     window.addEventListener("wheel", handleWheel, { passive: true })
-    return () => {
-      window.removeEventListener("wheel", handleWheel)
-    }
+    return () => { window.removeEventListener("wheel", handleWheel) }
   }, [])
 
-  // Auto-play after 3s of inactivity
   useEffect(() => {
     const interval = setInterval(() => {
       const timeSinceLastInteraction = Date.now() - lastInteraction
@@ -243,17 +251,15 @@ export default function Scene() {
 
   return (
     <>
-      {/* Ambient lighting */}
       <ambientLight intensity={0.4} />
       <pointLight position={[10, 10, 10]} intensity={0.6} />
       <pointLight position={[-10, -10, -5]} intensity={0.4} color="#ff6b35" />
       <spotLight position={[0, 5, 5]} intensity={0.3} angle={0.6} penumbra={1} />
 
       {textures.map((texture, index) => (
-        <FloatingImage key={index} texture={texture} index={index} rotation={rotation} />
+        <FloatingImage key={index} texture={texture} index={index} rotation={rotation} onSelect={onSelectImage} />
       ))}
 
-      {/* Reflection plane */}
       <mesh position={[0, -2.5, 0]} rotation={[-Math.PI / 2, 0, 0]}>
         <planeGeometry args={[30, 30]} />
         <meshStandardMaterial color="#0a0a0a" transparent opacity={0.2} roughness={0.1} metalness={0.9} />
