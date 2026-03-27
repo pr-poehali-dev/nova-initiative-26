@@ -6,16 +6,22 @@ function useLoadedTextures(urls: string[]) {
   const [textures, setTextures] = useState<(THREE.Texture | null)[]>(Array(urls.length).fill(null))
 
   useEffect(() => {
-    const loader = new THREE.TextureLoader()
-    loader.crossOrigin = "anonymous"
     urls.forEach((url, i) => {
-      loader.load(url, (tex) => {
+      const img = new Image()
+      img.crossOrigin = "anonymous"
+      img.onload = () => {
+        const tex = new THREE.Texture(img)
+        tex.needsUpdate = true
         setTextures((prev) => {
           const next = [...prev]
           next[i] = tex
           return next
         })
-      })
+      }
+      img.onerror = () => {
+        console.error("Failed to load texture:", url)
+      }
+      img.src = url
     })
   }, [])
 
@@ -23,25 +29,19 @@ function useLoadedTextures(urls: string[]) {
 }
 
 const images = [
-  "https://cdn.poehali.dev/projects/64c0066b-75ed-4ca7-9a62-72c25709d50b/bucket/c5fff5cd-b6aa-4315-8529-bbb706529c71.jpeg",
-  "https://cdn.poehali.dev/projects/64c0066b-75ed-4ca7-9a62-72c25709d50b/bucket/2842d813-70c7-4673-9a50-7fdc79b72802.jpeg",
-  "https://cdn.poehali.dev/projects/64c0066b-75ed-4ca7-9a62-72c25709d50b/bucket/80015b33-c370-4ea4-873d-c58e05da965e.jpeg",
-  "https://cdn.poehali.dev/projects/64c0066b-75ed-4ca7-9a62-72c25709d50b/bucket/411b5875-6497-4e79-bcc6-ce05555bd621.jpeg",
-  "https://cdn.poehali.dev/projects/64c0066b-75ed-4ca7-9a62-72c25709d50b/bucket/4bdea667-f39a-4d46-ab09-885ba543f07b.jpeg",
-  "https://cdn.poehali.dev/projects/64c0066b-75ed-4ca7-9a62-72c25709d50b/bucket/c5fff5cd-b6aa-4315-8529-bbb706529c71.jpeg",
-  "https://cdn.poehali.dev/projects/64c0066b-75ed-4ca7-9a62-72c25709d50b/bucket/2842d813-70c7-4673-9a50-7fdc79b72802.jpeg",
-  "https://cdn.poehali.dev/projects/64c0066b-75ed-4ca7-9a62-72c25709d50b/bucket/80015b33-c370-4ea4-873d-c58e05da965e.jpeg",
+  "https://cdn.poehali.dev/projects/64c0066b-75ed-4ca7-9a62-72c25709d50b/bucket/476007f4-df46-4317-9843-aa0e0f4bff2a.jpg",
+  "https://cdn.poehali.dev/projects/64c0066b-75ed-4ca7-9a62-72c25709d50b/bucket/6e721e91-f000-4a28-9cad-47ee695f3b0d.jpg",
+  "https://cdn.poehali.dev/projects/64c0066b-75ed-4ca7-9a62-72c25709d50b/bucket/c451a5fa-7b7d-4cdc-923f-3ea748a11f52.jpeg",
+  "https://cdn.poehali.dev/projects/64c0066b-75ed-4ca7-9a62-72c25709d50b/bucket/2084413c-3ff5-40d2-a018-d631f723e969.jpeg",
+  "https://cdn.poehali.dev/projects/64c0066b-75ed-4ca7-9a62-72c25709d50b/bucket/b27ef9fd-a02c-4548-baf6-63ad59b6ab29.jpg",
 ]
 
 export const imagesMeta = [
-  { title: "Street Collection", description: "Ансамбль с широкополой шляпой и пиджаком с фринжем. Городская сцена, три образа.", url: images[0] },
-  { title: "Pink Jacket", description: "Розовый жакет с чёрно-белым шарфом в полоску. Выполнен в пастельной технике на крафте.", url: images[1] },
-  { title: "Hussar Coat", description: "Гусарский сюртук из джинса с красными позументами, колпак для маскарада, сумка Биркин.", url: images[2] },
-  { title: "Black Maxi", description: "Чёрный максимальный силуэт с открытым плечом и синими солнечными очками oversize.", url: images[3] },
-  { title: "White Blazer", description: "Белый блейзер с разрезами на лацканах, радужные брюки, кроссовки. Подпись Yastrebova.", url: images[4] },
-  { title: "Street Collection II", description: "Второй взгляд на уличную коллекцию.", url: images[5] },
-  { title: "Pink Jacket II", description: "Детальный вид розового жакета.", url: images[6] },
-  { title: "Black Maxi II", description: "Детальный вид чёрного образа.", url: images[7] },
+  { title: "Gossip Girl", description: "The New York Times. Мода Манхэттена — верхний ист-сайд.", url: images[0] },
+  { title: "Become Her", description: "Fashion News. Old Money эстетика и тихая роскошь.", url: images[1] },
+  { title: "Red Dress", description: "Женщина в алом. Модный скетч карандашом.", url: images[2] },
+  { title: "Tennis", description: "Теннисистка. Яркий цветной скетч.", url: images[3] },
+  { title: "The Nuvia Times", description: "Peace is the new luxury. Роскошь нового времени.", url: images[4] },
 ]
 
 const imagePositions = [
