@@ -1,7 +1,26 @@
 import { useRef, useState, useEffect } from "react"
 import { useFrame, useThree } from "@react-three/fiber"
-import { useTexture } from "@react-three/drei"
 import * as THREE from "three"
+
+function useLoadedTextures(urls: string[]) {
+  const [textures, setTextures] = useState<(THREE.Texture | null)[]>(Array(urls.length).fill(null))
+
+  useEffect(() => {
+    const loader = new THREE.TextureLoader()
+    loader.crossOrigin = "anonymous"
+    urls.forEach((url, i) => {
+      loader.load(url, (tex) => {
+        setTextures((prev) => {
+          const next = [...prev]
+          next[i] = tex
+          return next
+        })
+      })
+    })
+  }, [])
+
+  return textures
+}
 
 const images = [
   "https://cdn.poehali.dev/projects/64c0066b-75ed-4ca7-9a62-72c25709d50b/bucket/c5fff5cd-b6aa-4315-8529-bbb706529c71.jpeg",
@@ -103,7 +122,7 @@ export default function Scene({ onSelectImage }: SceneProps) {
   const dragStart = useRef({ x: 0, y: 0 })
   const dragRotation = useRef(0)
 
-  const textures = useTexture(images)
+  const textures = useLoadedTextures(images)
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -256,9 +275,11 @@ export default function Scene({ onSelectImage }: SceneProps) {
       <pointLight position={[-10, -10, -5]} intensity={0.4} color="#ff6b35" />
       <spotLight position={[0, 5, 5]} intensity={0.3} angle={0.6} penumbra={1} />
 
-      {textures.map((texture, index) => (
-        <FloatingImage key={index} texture={texture} index={index} rotation={rotation} onSelect={onSelectImage} />
-      ))}
+      {textures.map((texture, index) =>
+        texture ? (
+          <FloatingImage key={index} texture={texture} index={index} rotation={rotation} onSelect={onSelectImage} />
+        ) : null
+      )}
 
       <mesh position={[0, -2.5, 0]} rotation={[-Math.PI / 2, 0, 0]}>
         <planeGeometry args={[30, 30]} />
