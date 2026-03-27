@@ -30,7 +30,7 @@ export default function LoadingScreen() {
           className="flex flex-col items-center gap-2"
         >
           <span className="font-serif text-xs tracking-[0.4em] uppercase text-foreground/40">Collection 2025</span>
-          <div className="font-serif text-5xl font-light tracking-widest text-foreground">VELO</div>
+          <div className="font-serif text-4xl font-light tracking-widest text-foreground">YASTREBOVA JY</div>
         </motion.div>
         <motion.div
           initial={{ scaleX: 0 }}

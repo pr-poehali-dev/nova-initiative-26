@@ -11,8 +11,8 @@ export default function Overlay() {
           className="flex flex-col items-center"
         >
           <span className="font-serif text-xs tracking-[0.4em] uppercase text-white/60 mb-1">Collection 2025</span>
-          <h1 className="font-serif text-3xl md:text-5xl font-light text-white tracking-widest">
-            VELO
+          <h1 className="font-serif text-2xl md:text-4xl font-light text-white tracking-widest">
+            YASTREBOVA JY
           </h1>
           <div className="h-px w-16 bg-white/30 mt-2" />
         </motion.div>
