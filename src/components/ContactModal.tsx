@@ -68,13 +68,13 @@ export default function ContactModal({ open, onClose }: ContactModalProps) {
 
                 <div className="flex flex-col gap-3 mb-6 text-white/50 text-sm">
                   <a
-                    href="https://t.me/yastrebova_jy"
+                    href="https://t.me/yastrebovajulie"
                     target="_blank"
                     rel="noreferrer"
                     className="flex items-center gap-2 hover:text-white transition-colors"
                   >
                     <Icon name="Send" size={15} />
-                    Telegram: @yastrebova_jy
+                    Telegram: @yastrebovajulie
                   </a>
                   <a
                     href="https://instagram.com/yastrebova_jy"

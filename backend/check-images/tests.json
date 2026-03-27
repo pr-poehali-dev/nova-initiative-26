@@ -1,0 +1,10 @@
+{
+  "tests": [
+    {
+      "name": "GET list of files in S3",
+      "method": "GET",
+      "path": "/",
+      "expected_status": 200
+    }
+  ]
+}
